@@ -34,12 +34,10 @@ public class MyHashMap<K, V> {
     }
 
     public void put(K key, V value) {
-        // get the hashcode and regenerate it to be optimum
         int userHash = key.hashCode();
         int hash = getSupplementalHash(userHash);
 
-        // compute the bucket number (0-15 based on our default size)
-        // this always results in a number between 0-15
+
         int bucket = getBucketNumber(hash);
         MyEntry existingElement = table[bucket];
 
