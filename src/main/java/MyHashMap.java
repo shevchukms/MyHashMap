@@ -24,7 +24,6 @@ public class MyHashMap<K, V> {
 
         MyHashMap<?, ?> myHashMap = (MyHashMap<?, ?>) o;
 
-        // Probably incorrect - comparing Object[] arrays with Arrays.equals
         return Arrays.equals(table, myHashMap.table);
     }
 
@@ -56,7 +55,6 @@ public class MyHashMap<K, V> {
             }
         }
 
-        //
         System.out.println("PUT adding key:" + key + ", value:" + value
                 + " to the list");
         MyEntry entryInOldBucket = new MyEntry(key, value);
@@ -69,15 +67,11 @@ public class MyHashMap<K, V> {
 
         int hash = getSupplementalHash(key.hashCode());
 
-        // compute the bucket number (0-15 based on our default size)
-        // this always results in a number between 0-15
         int bucket = getBucketNumber(hash);
 
-        // get the element at the above bucket if it exists
         MyEntry existingElement = table[bucket];
 
-        // if bucket is found then traverse through the linked list and
-        // see if element is present
+
         while (existingElement != null) {
             System.out.println("Traversing the list inside the bucket for the key "
                     + existingElement.getKey());
@@ -87,13 +81,11 @@ public class MyHashMap<K, V> {
             existingElement = existingElement.next;
         }
 
-        // if nothing is found then return null
         return null;
     }
 
 
     public int size() {
         return size();
-
     }
 }
